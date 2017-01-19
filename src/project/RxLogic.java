@@ -41,8 +41,16 @@ public class RxLogic {
                     k++;
             if (k == 14) {
                 System.out.println(str);
+                InitialData ob = partitionString(str);
             }
         }
         else System.out.println("Некорректная строка: " + str);
+    }
+
+    private InitialData partitionString(String initialDataString) {
+        String[] s = initialDataString.split("\\|", 14);
+        InitialData obj = new InitialData(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8], s[9],
+                s[10], s[11], s[12], s[13].substring(0, s[13].length() - 1));
+        return obj;
     }
 }
